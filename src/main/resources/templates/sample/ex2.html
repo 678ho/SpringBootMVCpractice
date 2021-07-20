@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+    <style>
+        .target {
+            background-color: red;
+        }
+    </style>
+    <ul>
+        <li th:each="dto, status : ${list}"  th:class="${dto.sno % 5 == 0}?'target'" th:text="${dto}">
 
-  <ul>
-
-      <li th:each="dto, state : ${list}">
-          [[${state.index}]] --- [[${dto}]]
-      </li>
-  </ul>
+        </li>
+    </ul>
 </body>
 </html>
-<!-- dto라는 변수를 만들어서 사용하고 Model로 전달된 데이터는 ${list}를 이용해서 처리
-     li태그 내에 사용된 [[]]는 인라인 표현식으로 별도의 태그 속성으로 지정하지 않고 사용하고자할때 유용하게 사용가능.-->
